@@ -10,29 +10,45 @@ public class MeuArrayDinamico {
     /** Dobra a capacidade do array interno. */
     private void resize() {
         // TODO 1a: crie um novo array com o dobro do tamanho
+        int[] novoArray = new int[dados.length * 2];
+        
         // TODO 1b: copie cada elemento de 'dados' para o novo array
+        for(int i = 0; i < tamanho; i++){
+            novoArray[i] = dados[i];
+        }
+
         // TODO 1c: faca 'dados' apontar para o novo array
+        this.dados = novoArray; 
     }
 
     /** Adiciona 'valor' no final do array. */
     public void add(int valor) {
         // TODO 2a: se tamanho == dados.length, chame resize()
+        if(tamanho == dados.length){
+            resize();
+        }
         // TODO 2b: coloque 'valor' na posicao 'tamanho'
+        this.dados[tamanho] = valor;
+
         // TODO 2c: incremente 'tamanho'
-    }
+        tamanho++;
+    }   
 
     /** Remove o elemento na posicao 'indice'. */
     public void remove(int indice) {
-        if (indice < 0 || indice >= tamanho)
-            throw new IndexOutOfBoundsException("Indice invalido: " + indice
-            );
+        if (indice < 0 || indice >= tamanho) {
+            throw new IndexOutOfBoundsException("Indice invalido: " + indice);
+        }
 
         // TODO 1: desloque cada elemento de (indice+1) ate (tamanho-1)
-        //         uma posicao para a esquerda.
-        //         Ou seja: dados[i] = dados[i+1] (para i de indice ate
-        //         tamanho-2)
+        //        uma posicao para a esquerda.
+        //        Ou seja: dados[i] = dados[i+1] (para i de indice ate tamanho-2)
+        for(int i = indice; i < tamanho-1; i++){
+            dados[i] = dados[i+1];
+        }
 
         // TODO 2: decremente 'tamanho'
+        tamanho--; 
     }
 
     /** Retorna o elemento na posicao 'indice'. */
