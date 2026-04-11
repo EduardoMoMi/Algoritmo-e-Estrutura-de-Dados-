@@ -47,7 +47,10 @@ public class ListaSimples {
         if (x == null) return;
         // TODO 1: crie um novo Node com 'item'
         // TODO 2: faca novo.next = x.next
+        Node novo = new Node(item, x.next);
+
         // TODO 3: faca x.next = novo
+        x.next = novo;
     }
 
     // === Teste ===

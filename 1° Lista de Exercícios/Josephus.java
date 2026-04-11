@@ -8,10 +8,16 @@ public class Josephus {
         Node atual = primeiro;
         for (int i = 2; i <= N; i++) {
             // TODO: crie um novo Node com valor i
+            Node novo = new Node(i);
+            
             // TODO: faca atual.next = novo
+            atual.next = novo;
+
             // TODO: avance atual para novo
+            atual = novo;
         }
         // TODO: faca atual.next = primeiro (fecha o circulo!)
+        atual.next = primeiro;
 
         // --- Passo 2: Simular a eliminacao ---
         Node anterior = atual;    // o no "antes" do atual
@@ -24,10 +30,19 @@ public class Josephus {
             //       Isto e, repita M-1 vezes:
             //           anterior = atual;
             //           atual = atual.next;
+            for(int i = 0; i < M-1; i++){
+                anterior = atual;
+                atual = atual.next;
+            }
 
             // TODO: elimine 'atual' fazendo anterior.next = atual.next
+            anterior.next = atual.next;
+
             // TODO: imprima o eliminado: atual.item
+            System.out.println(atual.item);
+
             // TODO: avance atual para anterior.next
+            atual = anterior.next;
         }
         System.out.println("\nSobrevivente: " + atual.item);
 
