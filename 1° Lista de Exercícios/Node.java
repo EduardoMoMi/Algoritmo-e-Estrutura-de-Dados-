@@ -4,7 +4,15 @@ public class Node {
 
     // TODO: crie um construtor Node(Object item) que
     //       inicializa this.item e coloca next = null
-
+    public Node(Object item){
+        this.item = item;
+        next = null;
+    }
     // TODO: crie um segundo construtor Node(Object item, Node next)
     //       que permite ja encadear na criacao
+    public Node(Object item, Node next){
+        this.item = item;
+        this.next = next;
+
+    }
 }

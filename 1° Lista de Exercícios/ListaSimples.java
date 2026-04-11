@@ -8,7 +8,11 @@ public class ListaSimples {
     /** Insere 'item' no INICIO da lista (O(1)). */
     public void insertFirst(Object item) {
         // TODO: crie um novo Node cujo 'next' aponta para o head atual
+        Node node = new Node(item, this.head);
+
+        
         // TODO: atualize head para apontar para o novo Node
+        this.head = node;
     }
 
     /** Percorre a lista e imprime todos os elementos. */
@@ -29,6 +33,12 @@ public class ListaSimples {
         //       Use .equals() para comparar objetos!
         //       Retorne 'atual' quando encontrar.
         //       Se chegar ao fim (null), retorne null.
+        while(atual != null){
+            if(atual.item.equals(item)){
+                return atual;
+            }
+            atual = atual.next;   
+        }
         return null;
     }
 
